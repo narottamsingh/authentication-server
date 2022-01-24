@@ -1,0 +1,6 @@
+com\bce\contoller\UserController.class
+com\bce\DemoApplication.class
+com\bce\model\UserInfo.class
+com\bce\service\UserInfoService.class
+com\bce\configuration\OAuthConfiguration.class
+com\bce\repository\UserDetailsRepository.class
