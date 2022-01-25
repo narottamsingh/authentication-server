@@ -1,7 +1,8 @@
-package com.nkk.configuration;
+package com.bce.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,6 +22,19 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @EnableAuthorizationServer
 public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 
+	@Value("${authentication.oauth.clientid:clientid}")
+	private String PROP_CLIENTID;
+	
+	@Value("${authentication.oauth.secret:secret}")
+	private String PROP_SECRET;
+	
+	@Value("${authentication.oauth.tokenValidityInSeconds:60}")
+	private Integer PROP_TOKEN_VALIDITY_SECONDS;
+	
+	@Value("${authentication.oauth.refreshTokenValidityInSeconds:120}")
+	private Integer PROP_REFRESH_TOKEN_VALIDITY_SECONDS;
+
+	
 	@Autowired
 	@Qualifier("authenticationManagerBean")
 	private AuthenticationManager authenticationManager;
@@ -41,12 +55,12 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
-		.withClient("clientid").secret(passwordEncoder().encode("secret"))
+		.withClient(PROP_CLIENTID).secret(passwordEncoder().encode(PROP_SECRET))
 		.authorizedGrantTypes("password", "authorization_code", "refresh_token").scopes("read","write")
 		.authorities("USER","ADMIN")
 		.autoApprove(true)
-		.accessTokenValiditySeconds(3*60)// min*60 = 3 min will be active
-        .refreshTokenValiditySeconds(10*60);// min*60= 10 minute will be active
+		.accessTokenValiditySeconds(PROP_TOKEN_VALIDITY_SECONDS)
+        .refreshTokenValiditySeconds(PROP_REFRESH_TOKEN_VALIDITY_SECONDS);
 	}
 
     @Override

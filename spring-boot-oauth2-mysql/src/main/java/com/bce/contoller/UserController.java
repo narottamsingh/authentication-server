@@ -1,4 +1,4 @@
-package com.nkk.contoller;
+package com.bce.contoller;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nkk.model.UserInfo;
-import com.nkk.service.UserInfoService;
+import com.bce.model.UserInfo;
+import com.bce.service.UserInfoService;
 
 @RestController
 public class UserController {

@@ -1,4 +1,4 @@
-package com.nkk.service;
+package com.bce.service;
 
 import java.util.Arrays;
 
@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.nkk.model.UserInfo;
+import com.bce.model.UserInfo;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

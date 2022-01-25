@@ -1,4 +1,4 @@
-package com.nkk.repository;
+package com.bce.repository;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.nkk.model.UserInfo;
+import com.bce.model.UserInfo;
 
 @Repository
 @Transactional

@@ -1,4 +1,4 @@
-package com.nkk.service;
+package com.bce.service;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nkk.model.UserInfo;
-import com.nkk.repository.UserDetailsRepository;
+import com.bce.model.UserInfo;
+import com.bce.repository.UserDetailsRepository;
 
 @Repository
 @Transactional
